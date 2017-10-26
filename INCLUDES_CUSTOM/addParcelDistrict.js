@@ -1,7 +1,7 @@
 /*
 Title : addParcelDistrict
 Purpose : Add District value passed to function to a specific Parcel or All Parcels on a Record 
-Author : Paul Rose
+Author : Paul H. Rose
 Functional Area : Inspections/APO/GIS
 Description : This function, along with calls to GIS or other script lookups, can be used to add a
               District value to the Record's Parcel District tab. Example below shows getting the
