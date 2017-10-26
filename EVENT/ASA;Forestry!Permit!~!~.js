@@ -1,7 +1,7 @@
 /*
 Script ID-Trees from GIS:   
 Paul H. Rose
-	Script will first get all associated GIS features and then do a get buffer of GIS features in the Multiple Owners layer.
+	Script will first get all associated GIS features and then do a get buffer of GIS features in the Trees layer.
 */
 
 try{
