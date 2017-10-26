@@ -1,3 +1,4 @@
+//Needed to get GIS feature associated when created by AMO or Apps
 //Copy Parcel GIS Objects to Record using function copyParcelGisObjects()
 try{
 	if(!publicUser){
