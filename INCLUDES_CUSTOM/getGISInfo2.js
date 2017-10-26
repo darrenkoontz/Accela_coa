@@ -1,5 +1,5 @@
 /*===========================================
-Title : getGISInfo2
+Title : getGISInfo2 
 Purpose : Returns an attribute from a layer in GIS with proximity parameters 
 Author : Paul Rose
 Functional Area : GIS
