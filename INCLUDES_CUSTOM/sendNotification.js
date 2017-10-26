@@ -1,4 +1,5 @@
-
+/*===========================================
+=========================================== */
 function sendNotification(emailFrom,emailTo,emailCC,templateName,params,reportFile) {
 	var itemCap = capId;
 	if (arguments.length == 7) itemCap = arguments[6]; // use cap ID specified in args
