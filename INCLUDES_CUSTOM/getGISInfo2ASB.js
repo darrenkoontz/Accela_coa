@@ -5,7 +5,7 @@
 |         : PLEASE ADD COMMENTS HERE IF YOU UPDATE 
 /------------------------------------------------------------------------------------------------------*/
 /*===========================================
-Title : getGISInfoASB2
+Title : getGISInfoASB2 
 Purpose : Returns an attribute from a layer in GIS with proximity parameters 
 Author : Paul Rose
 Functional Area : GIS
