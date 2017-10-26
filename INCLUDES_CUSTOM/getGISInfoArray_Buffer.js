@@ -1,5 +1,5 @@
 /*===========================================
-Title : getGISInfoArray_Buffer
+Title : getGISInfoArray_Buffer 
 Purpose : Returns an array of attributes from a layer in GIS with proximity parameters
 Author : Paul Rose
 Functional Area : GIS
