@@ -1,5 +1,5 @@
 /*===========================================
-Title : getGISIdForLayer
+Title : getGISIdForLayer 
 Purpose : Returns the GIS Feature ID value that is associated to a record by layer name 
 Author : Paul Rose
 Functional Area : GIS
