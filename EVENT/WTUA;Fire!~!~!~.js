@@ -1,0 +1,3 @@
+// WTUA:Fire/*/*/*
+
+checkRecordAssignedUser();
