@@ -9,8 +9,8 @@ function checkRecordAssignedUser() {
 	if ((wfTask == checkTask || wfTask == checkTask2) && wfStatus == checkStatus) {
 		var capAssignedUser = aa.cap.getCapDetail(capId).getOutput().getCapDetailModel().getAsgnStaff();
 		if (capAssignedUser == "" || capAssignedUser == null) {
-			cancel = true;
 			showMessage = true;
+			cancel = true;
 			comment("Fire Case requires Assigned user in Record detail");
 		}
 	}
