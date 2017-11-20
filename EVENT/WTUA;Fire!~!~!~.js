@@ -1,3 +1,4 @@
 // WTUA:Fire/*/*/*
 
-checkRecordAssignedUser();
+// moving to WTUB
+//checkRecordAssignedUser();
