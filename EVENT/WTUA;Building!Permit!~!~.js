@@ -1,0 +1,3 @@
+//WTUA:Building/Permit/*/*
+
+updateExpirationDateAsi();
