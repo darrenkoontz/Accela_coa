@@ -253,7 +253,7 @@ function mainProcess() {
 			//logDebug("ownerEmail: " + ownerEmail);
 			
 			//Add parameters
-			var replyEmail = "noreply@accela";
+			var replyEmail = "noreply@accela.com";
 			var params = aa.util.newHashtable();
 			addParameter(params, "$$recordID$$", capId.getCustomID());
 			addParameter(params, "$$dueDate$$", dueDate);
