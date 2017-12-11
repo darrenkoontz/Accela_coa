@@ -1,3 +1,3 @@
-//Inspection Schedule Before Event Script
+//Inspection Schedule After Event Script
 
 script57_ForestryInspectionScheduleDate();
