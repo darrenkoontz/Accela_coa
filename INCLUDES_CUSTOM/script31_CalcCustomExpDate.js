@@ -1,5 +1,5 @@
 //Script 31
-//Record Types:	Building/*/*/* and Fire/*/*/*
+//Record Types:	Planning/Special Request/Zoning Inquiry/NA
 //Event: 		CTRCA(ACA) or ASA(Civic Platform)
 //Desc:			For Planning/Special Request/Zoning Inquiry/NA Calculate Custom Field 
 //				Expiration Date at 30 working days from date application is submitted.
