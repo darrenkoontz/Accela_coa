@@ -29,7 +29,7 @@ function script57_ForestryInspectionScheduleDate() {
 			addThisText += "\n" + "Mgt Unit: " + mgtUnit;
 		}
 
-		var inspIdArr = String(aa.env.getValue("InspectionIdList")).split("|");	
+		var inspIdArr = aa.env.getValue("InspectionIDArray");	
 		for (var inInsp in inspIdArr) {
 			var thisInspectionID = inspIdArr[inInsp];
 			var thisInsp = aa.inspection.getInspection(capId, thisInspectionID ).getOutput();
