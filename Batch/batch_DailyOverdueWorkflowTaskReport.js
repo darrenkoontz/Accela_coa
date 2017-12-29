@@ -107,15 +107,16 @@ logDebug("Start of Job");
 if (!timeExpired) mainProcess();
 logDebug("End of Job: Elapsed Time : " + elapsed() + " Seconds");
 
-if (emailTo.length) {
+/*if (emailTo.length) {
 	var emailSentOK = aa.sendEmail(emailFrom,emailTo,emailCC,batchJobName + " Completed","Please see the batch job logs for more information");
-//	var emailSentOK = true;
+	var emailSentOK = true;
 	if (!emailSentOK) {
 		logDebug("EMAIL COULD NOT BE SENT! >" + emailSentOK );
 	}
 	else {
 		logDebug("EMAIL SENT.");
 	}
+*/
 }
 
 /*------------------------------------------------------------------------------------------------------/
