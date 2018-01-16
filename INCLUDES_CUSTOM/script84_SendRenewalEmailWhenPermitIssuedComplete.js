@@ -1,5 +1,5 @@
 //Script 84
-//Record Types:	Forestry/*/*/*
+//Record Types:	Water/Water/SWMP/Renewal
 //Event: 		WorkflowTaskUpdateAfter (WTUA)
 //Desc:			If the wfTask = “Permit Issued” and the wfStatus = “Completed” 
 //				Then send email notification(Email Template TBD by Aurora) 
