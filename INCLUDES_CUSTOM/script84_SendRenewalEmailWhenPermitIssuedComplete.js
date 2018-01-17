@@ -20,7 +20,7 @@ function script84_SendRenewalEmailWhenPermitIssuedComplete() {
 			var emailParameters = aa.util.newHashtable();
 			var reportFile = [];
 			var sendResult = sendNotification("noreply@aurora.gov","chad@esilverliningsolutions.com","","TEST_FOR_SCRIPTS",emailParameters,reportFile,capID4Email);
-			if !(sendResult) { logDebug("UNABLE TO SEND NOTICE!  ERROR: "+sendResult); }
+			if (!sendResult) { logDebug("UNABLE TO SEND NOTICE!  ERROR: "+sendResult); }
 		}
 	}
 	catch(err){
