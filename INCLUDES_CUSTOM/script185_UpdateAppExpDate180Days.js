@@ -6,14 +6,14 @@
 //Created By: Silver Lining Solutions
 
 function script185_UpdateAppExpDate180Days() {
-	aa.print("script185_UpdateAppExpDate180Days() started.");
+	logDebug("script185_UpdateAppExpDate180Days() started.");
 	try{
 		editAppSpecific("Application Expiration Date",dateAdd(fileDate,180));
 	}
 	catch(err){
 		showMessage = true;
 		comment("Error on custom function script185_UpdateAppExpDate180Days(). Please contact administrator. Err: " + err);
-		aa.print("Error on custom function script185_UpdateAppExpDate180Days(). Please contact administrator. Err: " + err);
+		logDebug("Error on custom function script185_UpdateAppExpDate180Days(). Please contact administrator. Err: " + err);
 	}
-	aa.print("script185_UpdateAppExpDate180Days() ended.");
+	logDebug("script185_UpdateAppExpDate180Days() ended.");
 };//END script185_UpdateAppExpDate180Days();
