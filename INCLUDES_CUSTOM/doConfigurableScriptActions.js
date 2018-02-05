@@ -1,10 +1,9 @@
 /*
- This replaces the loop through the two standard choices - STANDARD_SOLUTIONS and CONFIGURABLE_RULESETS
- Approach is that there will be 1 JSON script per solution/module
- The naming convention is CONFIGURABLE_RULESET_[solution/module name], for instance CONFIGURABLE_RULESET_LICENSES
- The JSON will include the scripts to be called by event for that solution/module, as an array
- This function will be located in the INCLUDES_ACCELA_FUNCTIONS and called at the end of the INCLUDES_CUSTOM, 
-  until it can be incorporated into Master Scripts
+ This function finds the JSON file associated to the module of the record running. 
+ The naming convention for the JSON is CONFIGURABLE_RULESET_[solution/module name], 
+	for instance CONFIGURABLE_RULESET_LICENSES
+ The JSON includes the scripts to be called by event for that solution/module, as an array.
+ This function is called from every event Master Script. 
  Sample JSON:
  {
   "WorkflowTaskUpdateAfter": {
@@ -31,16 +30,7 @@
  */
  
 function doConfigurableScriptActions(){
-	eval(getScriptText("INCLUDES_RECORD"));
-	
-	 // is there a JSON file for this solution/module
-	var thisRecord = new Record(capId);
-	var thisRecordType = thisRecord.getCapType();
-	var thisRecordTypeString = thisRecordType.toString();
-	
-	var capTypeArr = new Array();
-	var capTypeArr = thisRecordTypeString.split("/");
-	var module = capTypeArr[0];
+	var module = appTypeArray[0];
 	
 	rulesetName = "CONFIGURABLE_RULESET_" + module;
 	rulesetName = rulesetName.toUpperCase();
@@ -51,8 +41,7 @@ function doConfigurableScriptActions(){
 		 logDebug("No JSON file exists for this module.");
 	 }else{
 		var configJSON = JSON.parse(configRuleset);
-	 
-	
+
 	// match event, run appropriate configurable scripts
 		settingsArray = [];
 		if(configJSON[controlString]) {
@@ -71,4 +60,4 @@ function doConfigurableScriptActions(){
 			}
 		}
 	}
- }
+}
