@@ -10,7 +10,7 @@ function prepareAppForRenewal() {
 		var result = aa.cap.createRenewalCap(parentCapId, partialCapId, true);
 		if (result.getSuccess()) {
 			//3. Copy key information from parent license to partial cap
-			copyKeyInfo(parentCapId, partialCapId);
+			// copyKeyInfo(parentCapId, partialCapId);
 			
 			// 4. Update Veteran Custom field if contact is a veteran
 			// if(getIfVeteran(parentCapId)) editAppSpecific("Veteran","Yes",partialCapId);
