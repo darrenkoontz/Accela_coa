@@ -1,4 +1,5 @@
 function prepareAppForRenewal() {
+	logDebug("in prepareAppForRenewal");
 	var partialCapId = getIncompleteCapId();
 	var parentCapId = aa.env.getValue("ParentCapID");
 
