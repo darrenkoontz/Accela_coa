@@ -1,0 +1,5 @@
+// Renewal processing
+
+prepareAppForRenewal();
+
+
