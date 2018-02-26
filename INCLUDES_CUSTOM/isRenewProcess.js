@@ -1,4 +1,5 @@
 function isRenewProcess(parentCapID, partialCapID) {
+	logDebug("in isRenewProcess");
 	//1. Check to see parent CAP ID is null.
 	if (parentCapID == null || partialCapID == null || aa.util.instanceOfString(parentCapID)) {
 		return false;
