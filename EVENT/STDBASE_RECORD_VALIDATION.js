@@ -46,8 +46,12 @@ Description : JSON Example :
 			"requiredField": "Other Job value ID|Proposed Use|Other Job value",
 			"taskRequired": "Started Successfull|Started with issues",
 			"inspectionRequired": "",
+			"assignedUserRequired":true,
+			"assignedWorkflowTaskUser":true,
+			"RowRequiredInASIT":"FINES|EMPLOYEE NAMES",
 			"postScript": "
 		} 
+		
 		],
 		"ApplicationSpecificInfoUpdateBefore":[{
 			"preScript":" ",
@@ -91,6 +95,9 @@ Description : JSON Example :
 			"requiredField": "Other Job value ID|Proposed Use|Other Job value",
 			"taskRequired": "Started Successfull|Started with issues",
 			"inspectionRequired": "",
+			"assignedUserRequired":true,
+			"assignedWorkflowTaskUser":true,
+			"RowRequiredInASIT":"FINES|EMPLOYEE NAMES",
 			"postScript": "
 		} 
 
@@ -115,6 +122,7 @@ try {
 		var validationMessage = "";
 		var rules = settingsArray[s];
 		// run preScript
+
 		if (!matches(rules.preScript, null, " ")) {
 			eval(getScriptText(rules.preScript, null, false));
 		}
@@ -162,7 +170,7 @@ function validateRecord(rules) {
 			}
 		}
 		if (!isExists) {
-			validationMessage += "these LP are requird " + requiredLP + '</br>';
+			validationMessage += "these LP are requird " + rules.requiredLP + '</br>';
 		}
 
 	}
@@ -180,7 +188,7 @@ function validateRecord(rules) {
 			}
 		}
 		if (isExpired) {
-			validationMessage += '</br>' + "this LP are expired " + validateLP + '</br>';
+			validationMessage += '</br>' + "this LP are expired " + rules.validateLP + '</br>';
 
 		}
 	}
@@ -399,6 +407,63 @@ function validateRecord(rules) {
 		}
 	}
 
+	// this to check if the record assign to the user for all before event except ASB 
+	if (controlString != "ApplicationSubmitBefore") {
+		if (rules.assignedUserRequired != null && rules.assignedUserRequired != "") {
+			if (!getAssignedUser() && rules.assignedUserRequired) {
+				validationMessage += '</br>' + "Record should be assigned to a user  " + '</br>';
+			}
+		}
+	}
+
+	// this to check the work flow assigned user 
+	if (rules.assignedWorkflowTaskUser != "" && rules.assignedWorkflowTaskUser != null) {
+		if (rules.assignedWorkflowTaskUser && (wfStaffUserID == null || wfStaffUserID == "")) {
+			validationMessage += '</br>' + "Work flow task should be assigned to a user  " + '</br>';
+		}
+
+	}
+
+	/// this to check if the ASIT has rows 
+	if (rules.RowRequiredInASIT != "" && rules.RowRequiredInASIT != null) {
+		var rowRequiredASITArray = rules.RowRequiredInASIT.split("|");
+		var tmpASITAry = null;
+		for ( var r in rowRequiredASITArray) {
+			if (controlString == "ApplicationSpecificInfoUpdateBefore") {
+				loadASITablesBefore();
+				var currentASITRows = rowRequiredASITArray[r].replace(/[^a-zA-Z0-9]+/g, '');
+				if (!isNaN(currentASITRows.substring(0, 1)))
+					currentASITRows = "TBL" + currentASITRows // prepend with TBL if it starts with a number
+
+				var rowExists = false;
+				if (currentASITRows != undefined) {
+					eval("tmpASITAry=" + currentASITRows);
+					for (j in tmpASITAry) {
+						if (tmpASITAry[j] != null || tmpASITAry[j] != "undefined") {
+							rowExists = true;
+							break;
+						}
+					}
+				}
+				if (!rowExists) {
+					validationMessage += '</br>' + "This ASIT should have at least one row " + rowRequiredASITArray[r] + '</br>';
+				}
+			} else if (controlString == "ApplicationSubmitBefore") {
+				currentASITRows = getASITBefore(rowRequiredASITArray[r]);
+				if (currentASITRows == null) {
+					validationMessage += '</br>' + "This ASIT should have at least one row " + rowRequiredASITArray[r] + '</br>';
+				}
+			} else {
+				currentASITRows = getASITable(rowRequiredASITArray[r]);
+
+				if (currentASITRows == "undefined" || currentASITRows == null || !currentASITRows) {
+					validationMessage += '</br>' + "This ASIT should have at least one row " + rowRequiredASITArray[r] + '</br>';
+				}
+
+			}
+
+		}
+	}
 	if (validationMessage != "") {
 		cancel = true;
 		showMessage = true;
@@ -410,5 +475,24 @@ function validateRecord(rules) {
 		}
 
 	}
+}
+/**
+ * this user will return the assigned user
+ * @returns user id if the record already assigned else will return false
+ */
+function getAssignedUser() {
+	if (capId != null) {
+		capDetail = aa.cap.getCapDetail(capId).getOutput();
+
+		userObj = aa.person.getUser(capDetail.getAsgnStaff());
+		if (userObj.getSuccess()) {
+			staff = userObj.getOutput();
+			userID = staff.getUserID();
+			return userID;
+		} else {
+			return false;
+		}
+	} else
+		return false;
 }
 
