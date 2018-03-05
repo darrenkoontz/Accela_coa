@@ -186,49 +186,48 @@ function runReportAndSendAsync(reportName, module, itemCapId, reportParameters, 
 }
 
 function getStandardChoiceArray(stdChoice) {
-    var cntItems = 0;
-    var stdChoiceArray = new Array();
-    var bizDomScriptResult = aa.bizDomain.getBizDomain(stdChoice);
-    if (bizDomScriptResult.getSuccess()) {
-        var bizDomScriptObj = bizDomScriptResult.getOutput();
-        cntItems = bizDomScriptObj.size();
-        logDebug("getStdChoiceArray: size = " + cntItems);
-        if(cntItems > 0){
-            var bizDomScriptItr = bizDomScriptObj.iterator();
-            while(bizDomScriptItr.hasNext())
-            {
-                var bizBomScriptItem = bizDomScriptItr.next();
-                var stdChoiceArrayItem = new Array();
-                stdChoiceArrayItem["value"] = bizBomScriptItem.getBizdomainValue();
-                stdChoiceArrayItem["valueDesc"] = bizBomScriptItem.getDescription();
-                stdChoiceArrayItem["active"] = bizBomScriptItem.getAuditStatus();
-                stdChoiceArray.push(stdChoiceArrayItem);
-            }
-        }
-    }
-    return stdChoiceArray;
+	var cntItems = 0;
+	var stdChoiceArray = new Array();
+	var bizDomScriptResult = aa.bizDomain.getBizDomain(stdChoice);
+	if (bizDomScriptResult.getSuccess()) {
+		var bizDomScriptObj = bizDomScriptResult.getOutput();
+		cntItems = bizDomScriptObj.size();
+		logDebug("getStdChoiceArray: size = " + cntItems);
+		if (cntItems > 0) {
+			var bizDomScriptItr = bizDomScriptObj.iterator();
+			while (bizDomScriptItr.hasNext()) {
+				var bizBomScriptItem = bizDomScriptItr.next();
+				var stdChoiceArrayItem = new Array();
+				stdChoiceArrayItem["value"] = bizBomScriptItem.getBizdomainValue();
+				stdChoiceArrayItem["valueDesc"] = bizBomScriptItem.getDescription();
+				stdChoiceArrayItem["active"] = bizBomScriptItem.getAuditStatus();
+				stdChoiceArray.push(stdChoiceArrayItem);
+			}
+		}
+	}
+	return stdChoiceArray;
 }
- 
-function getReporingInfoStandards4Notification(eParamsHash,rptInfoStdChoice){
-    
-    var rptInfoStdArray = getStandardChoiceArray(rptInfoStdChoice);
-    
-    for(iSC in rptInfoStdArray){
-        if(rptInfoStdArray[iSC]["active"] == "A"){
-            var scValue = String(rptInfoStdArray[iSC]["value"]);
-            var scValueDesc = (rptInfoStdArray[iSC]["valueDesc"] != null) ? String(rptInfoStdArray[iSC]["valueDesc"]) : "";
-            var parameterName = "";
-            
-            if(scValue.indexOf("$$") < 0)
-                parameterName = "$$" + scValue.replace(/\s+/g, '') + "$$";
-            else
-                parameterName = scValue;
-            
-            addParameter(eParamsHash, parameterName, scValueDesc);          
-        }
-    }
-    
-    return eParamsHash;
+
+function getReporingInfoStandards4Notification(eParamsHash, rptInfoStdChoice) {
+
+	var rptInfoStdArray = getStandardChoiceArray(rptInfoStdChoice);
+
+	for (iSC in rptInfoStdArray) {
+		if (rptInfoStdArray[iSC]["active"] == "A") {
+			var scValue = String(rptInfoStdArray[iSC]["value"]);
+			var scValueDesc = (rptInfoStdArray[iSC]["valueDesc"] != null) ? String(rptInfoStdArray[iSC]["valueDesc"]) : "";
+			var parameterName = "";
+
+			if (scValue.indexOf("$$") < 0)
+				parameterName = "$$" + scValue.replace(/\s+/g, '') + "$$";
+			else
+				parameterName = scValue;
+
+			addParameter(eParamsHash, parameterName, scValueDesc);
+		}
+	}
+
+	return eParamsHash;
 }
 
 /**
@@ -252,8 +251,8 @@ function sendContactEmails(itemCapId, recordSettings, parameters) {
 	var rNotificationReport = handleUndefined(recordSettings.notificationReport, false);
 	var rFromEmail = handleUndefined(recordSettings.fromEmail, false);
 	var rAdditionalEmailsTo = handleUndefined(recordSettings.additionalEmailsTo, false);
-	var rCreateFromParent = handleUndefined(recordSettings.createFromParent,false);
-    var rReportingInfoStandards = handleUndefined(recordSettings.reportingInfoStandards,false);
+	var rCreateFromParent = handleUndefined(recordSettings.createFromParent, false);
+	var rReportingInfoStandards = handleUndefined(recordSettings.reportingInfoStandards, false);
 
 	// VALIDATE FUNCTION PARAMETERS
 	// validate required parameters, log error and return false if required parameters are missing
@@ -284,21 +283,21 @@ function sendContactEmails(itemCapId, recordSettings, parameters) {
 		logDebug("WARNING: The capIdObject Parameter is required for the function. " + functionTitle);
 		return false;
 	}
-	if(!rCreateFromParent || rCreateFromParent == ""){
-        rCreateFromParent = false;
-    }
-    
-    if(rCreateFromParent){
-        var vParentCapId = getParentByCapId(itemCapId);
-        
-        if (vParentCapId) { 
-            itemCapId = vParentCapId; 
-        }
-    }
-    
-    if(!rReportingInfoStandards || rReportingInfoStandards == ""){
-        rReportingInfoStandards = "Reporting Information Standards";
-    }
+	if (!rCreateFromParent || rCreateFromParent == "") {
+		rCreateFromParent = false;
+	}
+
+	if (rCreateFromParent) {
+		var vParentCapId = getParentByCapId(itemCapId);
+
+		if (vParentCapId) {
+			itemCapId = vParentCapId;
+		}
+	}
+
+	if (!rReportingInfoStandards || rReportingInfoStandards == "") {
+		rReportingInfoStandards = "Reporting Information Standards";
+	}
 
 	if (rNotificationTemplate != "" && rNotifyContactType != "") {
 		try {
@@ -344,11 +343,12 @@ function sendContactEmails(itemCapId, recordSettings, parameters) {
 				}
 			}
 
-			if (contactObjArray.length > 0) {
+			var eParams = null;
+			if (contactObjArray.length > 0 || rAdditionalEmailsTo) {
 
 				//Build parameters
 				if (!parameters) {
-					var eParams = aa.util.newHashtable();
+					eParams = aa.util.newHashtable();
 				} else {
 					eParams = parameters;
 				}
@@ -369,7 +369,7 @@ function sendContactEmails(itemCapId, recordSettings, parameters) {
 
 				var itemCapDetailObjResult = aa.cap.getCapDetail(itemCapId);
 				if (itemCapDetailObjResult.getSuccess()) {
-					itemCapDetail = capDetailObjResult.getOutput();
+					itemCapDetail = itemCapDetailObjResult.getOutput();
 					itemHouseCount = itemCapDetail.getHouseCount();
 					itemFeesInvoicedTotal = itemCapDetail.getTotalFee();
 					itemBalanceDue = itemCapDetail.getBalance();
@@ -382,8 +382,8 @@ function sendContactEmails(itemCapId, recordSettings, parameters) {
 				//repParams.put("altID", itemCapId.getCustomID());
 				repParams.put("p1Value", itemCapIDString); // Used for Ad Hoc Reporting
 
-				getReporingInfoStandards4Notification(eParams,rReportingInfoStandards);
-				
+				getReporingInfoStandards4Notification(eParams, rReportingInfoStandards);
+
 				addParameter(eParams, "$$altID$$", itemCapIDString);
 				addParameter(eParams, "$$recordName$$", itemCapName);
 				addParameter(eParams, "$$recordAlias$$", itemCapTypeAlias);
@@ -437,36 +437,33 @@ function sendContactEmails(itemCapId, recordSettings, parameters) {
 					if (wfHours)
 						addParameter(eParams, "$$wfHours$$", wfHours);
 				}
+			}//contacs list or additional emails
 
-				//Send Email logic
-				for (iCont in contactObjArray) {
+			//Send Email logic
+			for (iCont in contactObjArray) {
+				var eParamsContact = eParams;
+				var rptParamsContact = repParams;
+				var tContactObj = contactObjArray[iCont];
+				tContactObj.getEmailTemplateParams(eParamsContact, "Contact");
+				rptParamsContact.put("p2Value", tContactObj.type);
 
-					var eParamsContact = eParams;
-					var rptParamsContact = repParams;
-					var tContactObj = contactObjArray[iCont];
-					tContactObj.getEmailTemplateParams(eParamsContact, "Contact");
-					rptParamsContact.put("p2Value", tContactObj.type);
-
-					if (rNotificationReport == "") {
-						sendNotification(rFromEmail, tContactObj.people.getEmail(), "", rNotificationTemplate, eParamsContact, null, itemCapId);
-					} else {
-						reportFiles = new Array();
-						repTypeArray = rNotificationReport.split('|');
-						var capIDScriptModel = aa.cap.createCapIDScriptModel(itemCapId.getID1(), itemCapId.getID2(), itemCapId.getID3());
-						for (xReport in repTypeArray) {
-							var report = repTypeArray[xReport];
-							runReportAndSendAsync(report, itemModule, itemCapId, rptParamsContact, rFromEmail, tContactObj.people.getEmail(), rNotificationTemplate,
-									eParamsContact, "", 1);
-						}
+				if (rNotificationReport == "") {
+					sendNotification(rFromEmail, tContactObj.people.getEmail(), "", rNotificationTemplate, eParamsContact, null, itemCapId);
+				} else {
+					reportFiles = new Array();
+					repTypeArray = rNotificationReport.split('|');
+					var capIDScriptModel = aa.cap.createCapIDScriptModel(itemCapId.getID1(), itemCapId.getID2(), itemCapId.getID3());
+					for (xReport in repTypeArray) {
+						var report = repTypeArray[xReport];
+						runReportAndSendAsync(report, itemModule, itemCapId, rptParamsContact, rFromEmail, tContactObj.people.getEmail(), rNotificationTemplate, eParamsContact,
+								"", 1);
 					}
-
-				} // contactObjArray loop
-			}
+				}
+			} // contactObjArray loop
 
 			//code block repeated, we could not create empty CapContactScriptModel object and push() it to 'contactObjArray'
 			if (rAdditionalEmailsTo) {
 				var extraEmailsArray = rAdditionalEmailsTo.split("|");
-
 				for (e in extraEmailsArray) {
 					if (rNotificationReport == "") {
 						sendNotification(rFromEmail, extraEmailsArray[e].trim(), "", rNotificationTemplate, eParams, null);
@@ -476,7 +473,7 @@ function sendContactEmails(itemCapId, recordSettings, parameters) {
 						var capIDScriptModel = aa.cap.createCapIDScriptModel(itemCapId.getID1(), itemCapId.getID2(), itemCapId.getID3());
 						for (xReport in repTypeArray) {
 							var report = repTypeArray[xReport];
-							runReportAndSendAsync(report, itemModule, itemCapId, rptParamsContact, rFromEmail, extraEmailsArray[e].trim(), rNotificationTemplate, eParams, "", 1);
+							runReportAndSendAsync(report, itemModule, itemCapId, repParams, rFromEmail, extraEmailsArray[e].trim(), rNotificationTemplate, eParams, "", 1);
 						}
 					}
 				}//for all extra emails
