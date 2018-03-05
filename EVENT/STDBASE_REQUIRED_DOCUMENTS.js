@@ -128,7 +128,7 @@ Available Attributes for each type:
 try {
 	eval(getScriptText("CONFIGURABLE_SCRIPTS_COMMON"));
 	var settingsArray = [];
-	isConfigurableScript(settingsArray, "REQUIRED_DOCUMENT");
+	isConfigurableScript(settingsArray, "REQUIRED_DOCUMENTS");
 	var requiredDocuments;
 	var requirementType;
 	for (s in settingsArray) {
