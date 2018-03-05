@@ -267,7 +267,7 @@ function inspectionScheduling(capId, rules) {
 	if (schedule) {
 		//recId = getApplication(capId);
 
-		logDebug("should be in here: " + schedule);
+		//logDebug("should be in here: " + schedule);
 		// get # of days out to schedule
 		var daysToSched = 0
 		if (!matches(range, null, "", 0)) {
@@ -326,6 +326,7 @@ function inspectionScheduling(capId, rules) {
 			if (userObj.getSuccess()) {
 				staff = userObj.getOutput();
 				userID = staff.getUserID();
+				logDebug("userID: " + userID);
 				scheduleInspectionLocal(capId, inspType, daysToSched, userID, "", comments);
 			} else {
 				scheduleInspectionLocal(capId, inspType, daysToSched, "", "", comments);
@@ -511,19 +512,19 @@ function scheduleInspectionLocal(itemCap, iType, DaysAhead) // optional inspecto
 	var inspTime = null;
 	var inspComm = "Scheduled via Script";
 	if (arguments.length >= 3)
-		if (arguments[2] != null) {
-			var inspRes = aa.person.getUser(arguments[2])
+		if (arguments[3] != null) {
+			var inspRes = aa.person.getUser(arguments[3])
 			if (inspRes.getSuccess())
 				var inspectorObj = inspRes.getOutput();
 		}
 
 	if (arguments.length >= 4)
-		if (arguments[3] != null)
-			inspTime = arguments[3];
+		if (arguments[4] != null)
+			inspTime = arguments[4];
 
 	if (arguments.length == 5)
-		if (arguments[4] != null)
-			inspComm = arguments[4];
+		if (arguments[5] != null)
+			inspComm = arguments[5];
 
 	var schedRes = aa.inspection.scheduleInspection(itemCap, inspectorObj, aa.date.parseDate(dateAdd(null, DaysAhead)), inspTime, iType, inspComm)
 
