@@ -196,7 +196,7 @@ function ValidateDocument() {
 
 	}
 	if (!documentExists) {
-		var msg = "these document are required :" + DocumentString
+		var msg = "The following documents are required to continue:" + DocumentString
 		cancel = true;
 		showMessage = true;
 		if (isPublicUser) {
