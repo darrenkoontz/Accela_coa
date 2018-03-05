@@ -21,3 +21,21 @@ Notes:
 // In specification record the status is "Issued", but we set it to "Complete", since we didn't find an "Issued" status
 var wfStatusCompareVal = "Complete";
 setCodeReference(wfStatusCompareVal);
+
+/*------------------------------------------------------------------------------------------------------/
+Title 		: Building Certificate of Occupancy does Complete on License WF(WorkflowTaskUpdateAfter).
+
+Purpose		:If the workflow task “Inspection Phase” has a status of “Temporary CO Issued” or “Ready for CO” then use the address on
+		the record to go out and see if an MJ License Application exists on that address. and If a MJ License Application exists on
+		that address then close the workflow task “Certificate of Occupancy” with a status of “Final CO Issued”.
+			
+Author :   Israa Ismail
+
+Functional Area : Records 
+
+Sample Call : closeWfTaskCertificateOfOccupancy()
+
+Notes		: Provided Record type "MJ License Application" , is not available ,replaced with a Sample Record Type "Licenses/Marijuana/Retail Store/License"
+	          ,to be replaced with the correct record type
+/------------------------------------------------------------------------------------------------------*/
+closeWfTaskCertificateOfOccupancy();
