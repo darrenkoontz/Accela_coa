@@ -16,6 +16,7 @@ function script265_ManagerReviewToSupervisor{
 		comment("script265_ManagerReviewToSupervisor() started.");
 		comment("wfTask = " + wfTask);
 		comment("wfStatus" + wfStatus);
+		assignTask("Manager Review","ekoontz");
 		if (wfTask == "Draft Workorder" && wfStatus == "Workorder Drafted")
 		{
 			assignTask("Manager Review","ekoontz");
