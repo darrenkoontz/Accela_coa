@@ -113,9 +113,8 @@ try {
 			var rules = settingsArray[s];
 
 			//Execute PreScript
-			var preScript = rules.preScript;
-			if (!matches(preScript, null, "")) {
-				eval(getScriptText(preScript));
+			if (rules.hasOwnProperty("preScript") && !matches(rules.preScript, null, "")) {
+				eval(getScriptText(rules.preScript));
 			}
 
 			var asiMatched = true;
@@ -140,9 +139,8 @@ try {
 			}
 
 			//Execute Post Script
-			var postScript = rules.postScript;
-			if (!matches(postScript, null, "")) {
-				eval(getScriptText(postScript));
+			if (rules.hasOwnProperty("postScript") && !matches(rules.postScript, null, "")) {
+				eval(getScriptText(rules.postScript));
 			}
 		}
 	}
