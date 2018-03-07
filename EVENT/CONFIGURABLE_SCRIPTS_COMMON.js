@@ -154,7 +154,11 @@ function fillSettingsArray(itemType, settingsArray, ruleSet, configJsonObj, igno
 							//check if 3rd level matches any of pipe values
 							for (p in pipeValuesArray) {
 								if (thisOptionParts[2] == pipeValuesArray[p]) {
-									settingsArray.push(thisTypeEvents[t]);
+									if (thisTypeEvents[t] != null) {
+										for (j in thisTypeEvents[t]) {
+											settingsArray.push(thisTypeEvents[t][j]);
+										}//for all items in thisEvent
+									}//thisEvent !=null
 									break;
 								}
 							}//for all pipe values
