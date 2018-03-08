@@ -2,9 +2,6 @@
 //Created by JDM 2018-03-06
 //This is JDM's first - does this script even work?
 
-function fireCompleteOrNoViolations()
-{
-
 if (inspResult == "Complete")
 {
 	{	
@@ -19,6 +16,4 @@ if (inspResult =="No Violations Found")
 		closeTask("Inspection","No Violations Found","Updated via script","Updated via script");
 		updateAppStatus("Complete","updated by script");
 	}	
-}
-
 }
