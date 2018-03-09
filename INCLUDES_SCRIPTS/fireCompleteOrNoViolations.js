@@ -21,14 +21,14 @@ if (inspResult =="No Violations Found")
 if (inspResult != "Complete" || inspResult != "No Violations Found")
 {
 	var numinspections = getAppSpecific("Number of Failed Inspections");
-	if (numinspections != null)
+	
+	//ensure the value is not null - if so , make it a zero
+	if (!numinspections)
 	{
-		numinspectionsint = parseInt(numinspections);
+		numinspections = 0;		
 	}
-	else
-	{
-		numinspectionsint = 0
-	}
+	numinspectionsint = parseInt(numinspections);
+	
 	newnuminspectionsint = numinspectionsint + 1;
 	editAppSpecific("Number of Failed Inspections", newnuminspectionsint);
 }
