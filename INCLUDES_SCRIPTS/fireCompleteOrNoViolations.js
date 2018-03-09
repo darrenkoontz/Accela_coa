@@ -17,3 +17,11 @@ if (inspResult =="No Violations Found")
 		updateAppStatus("Complete","updated by script");
 	}	
 }
+
+if (inspResult != "Complete" || inspResult != "No Violations Found")
+{
+	var numinspections = getAppSpecific("Number of Failed Inspections");
+	numinspectionsint = parseInt(numinspections);
+	newnuminspectionsint = numinspectionsint + 1;
+	editAppSpecific("Number of Failed Inspections", newnuminspectionsint);
+}
