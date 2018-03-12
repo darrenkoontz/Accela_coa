@@ -10,7 +10,7 @@ JMAIN
 
 logDebug("Start realpropertyMissingInfoSubmittedSubdivision.js")
 
-var currentdate = new Date;
+var d = new Date;
 month = d.getMonth() +1;
 day = d.getDate();
 year = d.getFullYear();
