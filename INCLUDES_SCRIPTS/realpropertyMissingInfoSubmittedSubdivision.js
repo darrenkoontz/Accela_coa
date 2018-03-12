@@ -10,7 +10,19 @@ JMAIN
 
 logDebug("Start realpropertyMissingInfoSubmittedSubdivision.js")
 
-var currentdate = new Date(Date.now()).toLocaleString().split(", ")[0];
+var currentdate = new Date;
+month = d.getMonth() +1;
+day = d.getDate();
+year = d.getFullYear();
+if (month.length < 2)
+{
+	month = '0' + month;
+}
+if (day.length < 2)
+{
+	day = '0' + day;
+}
+currentdate = month + "/" + day + "/" + year;
 
 logDebug("Today is " + currentdate);
 
