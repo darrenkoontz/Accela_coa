@@ -24,7 +24,15 @@ logDebug("5 business days is " + fivebusinessdays);
 
 //get the current overal record status
 var currentrecordstatus = capStatus;
-logDebug("Record Status is " + currentrecordstatus);
+logDebug("Current record Status is " + currentrecordstatus);
+
+//Is this the right record status for this script to do anything?
+var iscorrectrecordstatus = false;
+if (currentrecordstatus == "Waiting on Documents";
+{
+	iscorrectrecordstatus = true;
+}
+logDebug("iscorrectrecordstatus: " + iscorrectrecordstatus);
 
 //check if the active task is "Application Acceptance"
 var tasktocheck = "Application Acceptance";
