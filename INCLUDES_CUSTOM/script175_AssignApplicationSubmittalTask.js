@@ -7,7 +7,7 @@
 //
 //Created By: Silver Lining Solutions
 
-function script175_AssignApplicationSubmittalTask{
+function script175_AssignApplicationSubmittalTask(){
 	logDebug("script175_AssignApplicationSubmittalTask() started.");
 	try{
 		showMessage = true;
