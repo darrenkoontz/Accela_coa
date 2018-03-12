@@ -8,7 +8,7 @@
 //
 //Created By: Silver Lining Solutions
 
-function script265_ManagerReviewToSupervisor{
+function script265_ManagerReviewToSupervisor(){
 	logDebug("script265_ManagerReviewToSupervisor() started.");
 	try{
 		showMessage = true;
