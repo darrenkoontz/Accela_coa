@@ -10,37 +10,29 @@ JMAIN
 
 logDebug("Start realpropertyMissingInfoSubmittedSubdivision.js")
 
+//get today's date in mm/dd/yyyy format
 var d = new Date;
 month = d.getMonth() +1;
 day = d.getDate();
 year = d.getFullYear();
-if (month.length < 2)
-{
-	month = '0' + month;
-}
-if (day.length < 2)
-{
-	day = '0' + day;
-}
 currentdate = month + "/" + day + "/" + year;
-
 logDebug("Today is " + currentdate);
 
+//get five business days from today
 var fivebusinessdays = dateAdd(currentdate, 5, "Y");
-
 logDebug("5 business days is " + fivebusinessdays);
 
+//get the current overal record status
 var currentrecordstatus = capStatus;
-
 logDebug("Record Status is " + currentrecordstatus);
 
-var workflowsteptocheck = "Application Acceptance";
+//check if the active task is "Application Acceptance"
+var tasktocheck = "Application Acceptance";
+var iscorrecttask = isTaskActive(workflowsteptocheck);
+logDebug("iscorrectworkflow: " + iscorrecttask);
 
-if (isTaskActive(workflowsteptocheck))
-{
-	logDebug("The workflow is Application Acceptance");
-}
-else
-{
-	logDebug("The workflow is NOT Application Acceptance");
-}
+//check if the active workflow status is "Missing Information"
+var istaskstatus = isTaskStatus("Application  Acceptance", "Missing Information");
+logDebug("istaskstatus: " + istaskstatus);
+
+//run the business logic
