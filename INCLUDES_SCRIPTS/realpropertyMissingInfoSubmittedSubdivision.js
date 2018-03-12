@@ -28,7 +28,7 @@ logDebug("Current record Status is " + currentrecordstatus);
 
 //Is this the right record status for this script to do anything?
 var iscorrectrecordstatus = false;
-if (currentrecordstatus == "Waiting on Documents";
+if (currentrecordstatus == "Waiting on Documents");
 {
 	iscorrectrecordstatus = true;
 }
@@ -40,7 +40,7 @@ var iscorrecttask = isTaskActive(tasktocheck);
 logDebug("iscorrecttask " + iscorrecttask);
 
 //check if the active workflow status is "Missing Information"
-var iscorrecttaskstatus = isTaskStatus("Application  Acceptance", "Missing Information");
+var iscorrecttaskstatus = isTaskStatus(tasktocheck, "Missing Information");
 logDebug("iscorrecttaskstatus: " + iscorrecttaskstatus);
 
 //run the business logic
