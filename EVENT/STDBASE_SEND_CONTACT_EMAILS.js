@@ -60,6 +60,8 @@ Description : JSON must contain :
 				$$workDesc$$
 				$$acaRecordUrl$$
 				$$acaPaymentUrl$$
+				$$recordName$$
+				$$FullAddress$$
 				
 				Inspection:
 				$$inspId$$  (inspection events only)
@@ -389,6 +391,21 @@ function sendContactEmails(itemCapId, recordSettings, parameters) {
 				addParameter(eParams, "$$fileDate$$", itemFileDate);
 				addParameter(eParams, "$$balanceDue$$", "$" + parseFloat(itemBalanceDue).toFixed(2));
 				addParameter(eParams, "$$workDesc$$", (workDesc) ? workDesc : "");
+
+				var capAddresses = aa.address.getAddressByCapId(capId);
+				if (capAddresses.getSuccess()) {
+					capAddresses = capAddresses.getOutput();
+					if (capAddresses != null && capAddresses.length > 0) {
+						capAddresses = capAddresses[0];
+						var addressVar = "";
+						addressVar = capAddresses.getHouseNumberStart() + " ";
+						addressVar = addressVar + capAddresses.getStreetName() + " ";
+						addressVar = addressVar + capAddresses.getCity() + " ";
+						addressVar = addressVar + capAddresses.getState() + " ";
+						addressVar = addressVar + capAddresses.getZip();
+						addParameter(eParams, "$$FullAddress$$", addressVar);
+					}
+				}
 
 				if (rUrl4ACA && responsiveACA.toUpperCase() != "YES") {
 					buildRecURL = rUrl4ACA + getACAUrl(itemCapId);
