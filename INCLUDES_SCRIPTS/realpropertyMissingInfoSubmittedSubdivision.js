@@ -12,7 +12,7 @@ logDebug("Start realpropertyMissingInfoSubmittedSubdivision.js")
 
 //get today's date in mm/dd/yyyy format
 var d = new Date;
-month = d.getMonth() +1;
+month = d.getMonth() + 1;
 day = d.getDate();
 year = d.getFullYear();
 currentdate = month + "/" + day + "/" + year;
@@ -22,9 +22,9 @@ logDebug("Today is " + currentdate);
 var fivebusinessdays = dateAdd(currentdate, 5, "Y");
 logDebug("5 business days is " + fivebusinessdays);
 
-//get the current overal record status
+//get the current overall record status
 var currentrecordstatus = capStatus;
-logDebug("Current record Status is " + currentrecordstatus);
+logDebug("Current record Status: " + currentrecordstatus);
 
 //Is this the right record status for this script to do anything?
 var iscorrectrecordstatus = false;
