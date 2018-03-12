@@ -33,6 +33,7 @@ Description : JSON Example :
 				"contactType": "Applicant"
 				
 			},
+			"validationMessage":"Test Message",
 			"requiredLP": "Engineer",
 			"validateLP": true,
 			"numberLP": 1,
@@ -82,6 +83,7 @@ Description : JSON Example :
 				"contactType": "Applicant"
 				
 			},
+			"validationMessage":"Test Message",
 			"requiredLP": "Engineer",
 			"validateLP": true,
 			"numberLP": 1,
@@ -465,13 +467,15 @@ function validateRecord(rules) {
 		}
 	}
 	if (validationMessage != "") {
-		cancel = true;
+		var validationMessageText = (rules.validationMessage == null || rules.validationMessage == "") ? validationMessage : rules.validationMessage;
 		showMessage = true;
+		cancel = true;
+
 		if (isPublicUser) {
 			aa.env.setValue("ErrorCode", "1");
-			aa.env.setValue("ErrorMessage", validationMessage);
+			aa.env.setValue("ErrorMessage", validationMessageText);
 		} else {
-			comment(validationMessage);
+			comment(validationMessageText);
 		}
 
 	}
@@ -495,4 +499,3 @@ function getAssignedUser() {
 	} else
 		return false;
 }
-
