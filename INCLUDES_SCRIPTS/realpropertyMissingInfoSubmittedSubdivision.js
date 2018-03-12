@@ -40,7 +40,7 @@ var iscorrecttask = isTaskActive(tasktocheck);
 logDebug("iscorrecttask " + iscorrecttask);
 
 //check if the active workflow status is "Missing Information"
-var istaskstatus = isTaskStatus("Application  Acceptance", "Missing Information");
-logDebug("istaskstatus: " + istaskstatus);
+var iscorrecttaskstatus = isTaskStatus("Application  Acceptance", "Missing Information");
+logDebug("iscorrecttaskstatus: " + iscorrecttaskstatus);
 
 //run the business logic
