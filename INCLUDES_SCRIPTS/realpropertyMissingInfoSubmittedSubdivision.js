@@ -34,13 +34,13 @@ var currentrecordstatus = capStatus;
 
 logDebug("Record Status is " + currentrecordstatus);
 
-var workflowsteptocheck = "Application Status";
+var workflowsteptocheck = "Application Acceptance";
 
-if (isTaskActive("Application Status"))
+if (isTaskActive(workflowsteptocheck))
 {
-	logDebug("The workflow is Application Status");
+	logDebug("The workflow is Application Acceptance");
 }
 else
 {
-	logDebug("The workflow is NOT Application Status");
+	logDebug("The workflow is NOT Application Acceptance");
 }
