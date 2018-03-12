@@ -28,8 +28,8 @@ logDebug("Record Status is " + currentrecordstatus);
 
 //check if the active task is "Application Acceptance"
 var tasktocheck = "Application Acceptance";
-var iscorrecttask = isTaskActive(workflowsteptocheck);
-logDebug("iscorrectworkflow: " + iscorrecttask);
+var iscorrecttask = isTaskActive(tasktocheck);
+logDebug("iscorrecttask " + iscorrecttask);
 
 //check if the active workflow status is "Missing Information"
 var istaskstatus = isTaskStatus("Application  Acceptance", "Missing Information");
