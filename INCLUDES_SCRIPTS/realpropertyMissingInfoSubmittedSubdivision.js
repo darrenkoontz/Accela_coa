@@ -53,7 +53,7 @@ logDebug("iscorrecttaskstatus: " + iscorrecttaskstatus);
 if (iscorrectrecordstatus && iscorrecttask && iscorrecttaskstatus)
 {
 	logDebug("Doing a bunch of work...");
-	updateAppStatus("Ready for Review", "updated by COA script realpropertyMissingInfoSubmittedSubdivision";
+	updateAppStatus("Ready for Review", "updated by COA script realpropertyMissingInfoSubmittedSubdivision");
 	activateTask("Application Acceptance");
 	editTaskDueDate("Application Acceptance", fivebusinessdays);
 	logDebug("Did a bunch of work...");
