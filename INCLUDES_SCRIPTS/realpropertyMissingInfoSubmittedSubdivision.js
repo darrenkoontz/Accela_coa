@@ -36,7 +36,7 @@ logDebug("iscorrectrecordstatus: " + iscorrectrecordstatus);
 
 if (!iscorrectrecordstatus)
 {
-	logDebug("No work to do... Exiting...");
+	logDebug("No work to do... would like to exit now if possible...");
 	//if possible exit the script - I haven't figured that out yet...
 }
 
@@ -53,6 +53,10 @@ logDebug("iscorrecttaskstatus: " + iscorrecttaskstatus);
 if (iscorrectrecordstatus && iscorrecttask && iscorrecttaskstatus)
 {
 	logDebug("Doing a bunch of work...");
+	updateAppStatus("Ready for Review", "updated by COA script realpropertyMissingInfoSubmittedSubdivision";
+	activateTask("Application Acceptance");
+	editTaskDueDate("Application Acceptance", fivebusinessdays);
+	logDebug("Did a bunch of work...");
 }
 else
 {
