@@ -28,6 +28,7 @@ logDebug("Current record Status: " + currentrecordstatus);
 
 //Is this the right record status for this script to do anything?
 var iscorrectrecordstatus = false;
+currentrecordstatus == "Waiting on Documents"; //debug
 if (currentrecordstatus == "Waiting on Documents")
 {
 	iscorrectrecordstatus = true;
