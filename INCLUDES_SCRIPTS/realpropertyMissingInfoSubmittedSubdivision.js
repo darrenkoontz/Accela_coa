@@ -37,6 +37,7 @@ logDebug("iscorrectrecordstatus: " + iscorrectrecordstatus);
 if (!iscorrectrecordstatus)
 {
 	logDebug("No work to do... Exiting...");
+	//if possible exit the script - I haven't figured that out yet...
 }
 
 //check if the active task is "Application Acceptance"
@@ -48,4 +49,12 @@ logDebug("iscorrecttask: " + iscorrecttask);
 var iscorrecttaskstatus = isTaskStatus(tasktocheck, "Missing Information");
 logDebug("iscorrecttaskstatus: " + iscorrecttaskstatus);
 
-//run the business logic
+//run the business logic - if everything is true, update the record
+if (iscorrectrecordstatus && iscorrecttask && iscorrecttaskstatus)
+{
+	logDebug("Doing a bunch of work...");
+}
+else
+{
+	logDebug("NOT doing a bunch of work...");
+}
