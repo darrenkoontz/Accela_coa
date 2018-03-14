@@ -34,7 +34,7 @@ Description : JSON Example :
 			"parcelFields": {
 				"ParcelNumber": "00800"
 			},
-
+			"validationMessage":"Please upload required documents: ",
 			"requiredDocuments" :"Letters|Plans",
 			"requirementType" :"STANDARD",
 			"postScript ": " "
@@ -66,7 +66,7 @@ Description : JSON Example :
 			"parcelFields": {
 				"ParcelNumber": "00800"
 			},
-
+			"validationMessage":"Please upload required documents: ",
 			"requiredDocuments" :"Letters|Plans",
 			"requirementType" :"STANDARD",
 			"postScript ": " "
@@ -79,8 +79,7 @@ Description : JSON Example :
 				"Contact Type": "Applicant",
 				"firstName": "testeee"
 			},
-
-
+			"validationMessage":"Please upload required documents: ",
 			"requiredDocuments" :"Letters|Plans|Pictures",
 			"requirementType" :"CONDITIONAL",
 			"postScript ": " "
@@ -107,6 +106,7 @@ Description : JSON Example :
 				"Professional Type": "Engineer",
 				"Custom Field": "Value"
 			},
+			"validationMessage":"Please upload required documents: ",
 			"requiredDocuments": "Document1|Document2",
 			"requirementType": "CONDITIONAL or STANDARD",
 			"postScript": ""
@@ -123,6 +123,8 @@ Available Attributes for each type:
 - Parcel: All Custom Attributes, (ParcelNumber,Section,Block,LegalDesc,GisSeqNo,SourceSeqNumber,Page,I18NSubdivision,CouncilDistrict,RefAddressTypes,ParcelStatus,ExemptValue,PublicSourceSeqNBR,CensusTract,InspectionDistrict,NoticeConditions,ImprovedValue,PlanArea,Lot,ParcelArea,Township,LandValue)
 - Licensed Professional: All Custom Attributes, (licType,lastName,firstName,businessName,address1,city,state,zip,country,email,phone1,phone2,lastRenewalDate,licExpirationDate,FEIN,gender,birthDate)
 - Contact: All Custom Attributes, (firstName,lastName,middleName,businessName,contactSeqNumber,contactType,relation,phone1,phone2,email,addressLine1,addressLine2,city,state,zip,fax,notes,country,fullName,peopleModel)
+
+- Custom Validation Message 'validationMessage': Optional, if set, missing document names will NOT be appended to displayed message
  */
 
 try {
@@ -151,7 +153,7 @@ try {
 		}
 		/// this to check if all Rules  if is matched.
 		if (isJsonRulesMatchRecordData(rules))
-			ValidateDocument();
+			ValidateDocument(rules);
 	}
 
 } catch (ex) {
@@ -160,7 +162,7 @@ try {
 }
 
 /// this function will validate documents based on the rules in the JSON.
-function ValidateDocument() {
+function ValidateDocument(jsonRules) {
 	// this when rules is matched;
 
 	var submittedDocArray = aa.document.getCapDocumentList(capId, currUserId).getOutput();
@@ -196,18 +198,24 @@ function ValidateDocument() {
 
 	}
 	if (!documentExists) {
-		var msg = "The following documents are required to continue:" + DocumentString
+		//used if no validationMsg exist in JSON
+		var defaultValidationMsg = "The following documents are required to continue:" + DocumentString;
+
+		var validationMsg = "";
+		if (jsonRules.hasOwnProperty("validationMessage") && jsonRules.validationMessage != null && jsonRules.validationMessage != "") {
+			validationMsg = jsonRules.validationMessage;
+		} else {
+			validationMsg = defaultValidationMsg;
+		}
 		cancel = true;
 		showMessage = true;
 		if (isPublicUser) {
 			aa.env.setValue("ErrorCode", "1");
-			aa.env.setValue("ErrorMessage", msg);
-			comment(msg);
+			aa.env.setValue("ErrorMessage", validationMsg);
+			comment(validationMsg);
 		} else {
-
-			comment(msg);
+			comment(validationMsg);
 		}
-
 	}
 	if (!matches(postScript, null, " ")) {
 		eval(getScriptText(postScript)); // , null, false ???
