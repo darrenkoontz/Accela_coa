@@ -4,8 +4,6 @@
 
 if (wfStatus == "Assigned")
 {
-		
-		editAppSpecific("Number of Failed Inspections", 0);
 		deactivateTask();
 		
 }
