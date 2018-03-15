@@ -1,7 +1,7 @@
 // this scenario could not be added to the configurable script due to the backslash in the result
 
 try {
-	if(inspType == "Sprinkler System" && inspResult == "Scheduled"){
+	if(inspType == "Sprinkler System" ){
 		capStatus = "Awaiting Inspection";
 	}
 }catch (err) {
