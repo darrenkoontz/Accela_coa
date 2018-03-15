@@ -14,3 +14,5 @@ Sample Call:
 */
 
 checkApplicatoinSubmittalRequiredFees("Application Submittal", [ "Accepted" ]);
+
+include("15_waterCheckFeesInvoicedBeforeSendingEmail");
