@@ -2,6 +2,7 @@
 
 try {
 	if(inspType == "Sprinkler System" && inspResult == "Scheduled"){
+		capStatus = "Awaiting Inspection";
 	}
 }catch (err) {
 	logDebug("A JavaScript Error occured: " + err.message);
