@@ -4,7 +4,7 @@ Written by JMAIN
 
 logDebug("starting script...")
 
-//deteremine if "Fee Processing" is the current task
+//determine if "Fee Processing" is the current task
 var currenttask = wfTask;
 var correcttask = "Fee Processing";
 var iscorrecttask = false;
