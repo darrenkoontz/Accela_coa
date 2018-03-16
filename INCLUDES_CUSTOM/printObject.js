@@ -6,7 +6,7 @@ function printObject(theobject)
 	var debugline = "";
 	for (var item in theobject )
 	{	
-		debugline += "ITEM " + item + " <<<<<>>>>>";
+		debugline += "<<<<< ITEM " + item + " >>>>>";
 		for (var prop in theobject[item])
 		{
 			debugline += prop + ":" + theobject[item][prop] + ", ";
