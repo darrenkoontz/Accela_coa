@@ -7,8 +7,3 @@
 //              Action update the record status to “Awaiting Inspection”
 //
 //Created By: Silver Lining Solutions
-
-function script197_SetAwaitingInspectionStatus() {
-	
-
-};//END script197_SetAwaitingInspectionStatus();
