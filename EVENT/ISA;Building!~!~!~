@@ -2,7 +2,7 @@
 
 try {
 	if(inspType == "Sprinkler System" ){
-		updateAppStatus("Sprinkler System");
+		updateAppStatus("Awaiting Inspection");
 	}
 }catch (err) {
 	logDebug("A JavaScript Error occured: " + err.message);
