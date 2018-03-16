@@ -5,8 +5,8 @@ function printObject(theobject)
 {
 	for (var item in theobject )
 	{	
-		logDebug(">>>>>>>" + item + "<<<<<<<");
 		var debugline = "";
+		debugline += ">>>>>>>" + item + "<<<<<<<";
 		for (var prop in theobject[item])
 		{
 			debugline += prop + ":" + theobject[item][prop] + ", ";
