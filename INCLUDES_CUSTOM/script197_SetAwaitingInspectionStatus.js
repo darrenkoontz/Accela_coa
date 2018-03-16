@@ -1,0 +1,25 @@
+//Script 197
+//Record Types:	Building/NA/NA/NA 
+//Event: 		ISA
+//Desc:	 
+//
+//              Criteria If the inspectionType = “Sprinkler System” is scheduled
+//              Action update the record status to “Awaiting Inspection”
+//
+//Created By: Silver Lining Solutions
+
+function script197_SetAwaitingInspectionStatus {
+	logDebug("script197_SetAwaitingInspectionStatus() started.");
+	try {
+		if(inspType == "Sprinkler System" ){
+			updateAppStatus("Awaiting Inspection");
+		}
+	}
+	catch (err) {
+		showMessage = true;
+		comment("Error on custom function script197_SetAwaitingInspectionStatus(). Please contact administrator. Err: " + err);
+		logDebug("Error on custom function script197_SetAwaitingInspectionStatus(). Please contact administrator. Err: " + err);
+		logDebug("A JavaScript Error occured: " + err.message);
+	}
+
+};//END script197_SetAwaitingInspectionStatus();
