@@ -49,13 +49,6 @@ if (iscorrecttask && iscorrectstatus && (numfees > 0) && hasbeeninvoiced == fals
 	cancel = true;
 	showMessage = true;
 	comment("Fees must be added and invoiced for Ready to Pay");
-	throw ("Fees must be added and invoiced for Ready to Pay");
-}
-else
-{
-	//cancel = true;
-	showMessage = true;
-	comment("blah blah blah");
 }
 
 // code to pretty print the content of allfees
