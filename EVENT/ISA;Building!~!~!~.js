@@ -1,8 +1,1 @@
-try {
-		if(inspType == "Sprinkler System" ){
-			updateAppStatus("Awaiting Inspection");
-		}
-	}
-	catch (err) {
-		
-	}
+script197_SetAwaitingInspectionStatus();
