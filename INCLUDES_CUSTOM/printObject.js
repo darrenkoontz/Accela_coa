@@ -11,6 +11,6 @@ function printObject(theobject)
 		{
 			debugline += prop + ":" + theobject[item][prop] + ", ";
 		}
-		return debugline;
 	}
+	return debugline;
 }
