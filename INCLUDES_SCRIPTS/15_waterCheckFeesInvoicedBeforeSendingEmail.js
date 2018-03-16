@@ -45,7 +45,7 @@ logDebug("hasbeeninvoiced: " + hasbeeninvoiced);
 //put a message on the website if necessary
 if (iscorrecttask && iscorrectstatus && (numfees > 0) && hasbeeninvoiced == false)
 {
-	logDebug("Fees must be added and invoiced for Ready to Pay");
+	logDebug("Debug:  Fees must be added and invoiced for Ready to Pay");
 	cancel = true;
 	showMessage = true;
 	comment("Fees must be added and invoiced for Ready to Pay");
