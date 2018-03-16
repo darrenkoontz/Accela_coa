@@ -39,7 +39,7 @@ for (var fee in allfees)
 logDebug("hasbeeninvoiced: " + hasbeeninvoiced);
 
 //put a message on the website if necessary
-if (iscorrecttask && iscorrectstatus && numfees > 0 && hasbeeninvoiced == false)
+if (iscorrecttask && iscorrectstatus && (numfees > 0) && hasbeeninvoiced == false)
 {
 	logDebug("Fees must be added and invoiced for Ready to Pay");
 	cancel = true;
@@ -48,7 +48,7 @@ if (iscorrecttask && iscorrectstatus && numfees > 0 && hasbeeninvoiced == false)
 }
 else
 {
-	cancel = true;
+	//cancel = true;
 	showMessage = true;
 	comment("blah blah blah");
 }
