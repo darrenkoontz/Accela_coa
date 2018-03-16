@@ -8,19 +8,10 @@
 //
 //Created By: Silver Lining Solutions
 
-function script265_ManagerReviewToSupervisor(){
+function script265_ManagerReviewToSupervisor{
 	logDebug("script265_ManagerReviewToSupervisor() started.");
 	try{
-		showMessage = true;
-		showDegub = true;
-		comment("script265_ManagerReviewToSupervisor() started.");
-		comment("wfTask = " + wfTask);
-		comment("wfStatus" + wfStatus);
-		assignTask("Manager Review","ekoontz");
-		if (wfTask == "Draft Workorder" && wfStatus == "Workorder Drafted")
-		{
-			assignTask("Manager Review","ekoontz");
-		}	
+	
 	}
 	catch(err){
 		showMessage = true;
