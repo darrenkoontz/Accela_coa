@@ -6,6 +6,10 @@ logDebug("starting script...")
 
 //determine if "Fee Processing" is the current task
 var currenttask = wfTask;
+logDebug("currenttask is: " + currenttask);
+var currentstatus = wfStatus;
+logDebug("currentstatus is: " + currentstatus);
+
 var correcttask = "Fee Processing";
 var iscorrecttask = false;
 if (currenttask == correcttask)
