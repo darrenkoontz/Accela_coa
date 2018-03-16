@@ -45,10 +45,10 @@ logDebug("hasbeeninvoiced: " + hasbeeninvoiced);
 //put a message on the website if necessary
 if (iscorrecttask && iscorrectstatus && (numfees > 0) && hasbeeninvoiced == false)
 {
-	logDebug("Debug:  Fees must be added and invoiced for Ready to Pay");
+	logDebug("Fees must be added AND invoiced before Ready to Pay can be activated!");
 	cancel = true;
 	showMessage = true;
-	comment("Fees must be added and invoiced for Ready to Pay");
+	comment("Fees must be added AND invoiced before Ready to Pay can be activated!");
 }
 
 // code to pretty print the content of allfees
