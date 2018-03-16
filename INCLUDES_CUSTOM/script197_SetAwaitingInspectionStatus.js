@@ -16,10 +16,7 @@ function script197_SetAwaitingInspectionStatus() {
 		}
 	}
 	catch (err) {
-		showMessage = true;
 		comment("Error on custom function script197_SetAwaitingInspectionStatus(). Please contact administrator. Err: " + err);
-		logDebug("Error on custom function script197_SetAwaitingInspectionStatus(). Please contact administrator. Err: " + err);
-		logDebug("A JavaScript Error occured: " + err.message);
 	}
 
 };//END script197_SetAwaitingInspectionStatus();
