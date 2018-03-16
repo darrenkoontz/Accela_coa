@@ -8,7 +8,7 @@
 //
 //Created By: Silver Lining Solutions
 
-function script197_SetAwaitingInspectionStatus {
+function script197_SetAwaitingInspectionStatus() {
 	logDebug("script197_SetAwaitingInspectionStatus() started.");
 	try {
 		if(inspType == "Sprinkler System" ){
