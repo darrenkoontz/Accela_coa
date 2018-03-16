@@ -6,5 +6,5 @@ try {
 		}
 	}
 	catch (err) {
-		comment("Error on custom function script197_SetAwaitingInspectionStatus(). Please contact administrator. Err: " + err);
+		
 	}
