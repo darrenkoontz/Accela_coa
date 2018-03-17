@@ -67,7 +67,10 @@ logDebug(printObject(contactstoemail));
 //send some emails if necessary
 if (iscorrecttask && iscorrectstatus && (totalfeebalance > 0.00))
 	{
-		//do some work		
+		//send emails to the people in contacttoemail
+		
+		//set wfStatus to "Ready to Pay"		
+		
 	}
 
 }
