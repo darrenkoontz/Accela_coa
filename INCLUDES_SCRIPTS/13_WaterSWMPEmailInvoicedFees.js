@@ -72,5 +72,3 @@ if (iscorrecttask && iscorrectstatus && (totalfeebalance > 0.00))
 		//set wfStatus to "Ready to Pay"		
 		
 	}
-
-}
