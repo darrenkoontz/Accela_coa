@@ -11,6 +11,7 @@ function printObject(theobject)
 		{
 			debugline += prop + ":" + theobject[item][prop] + ", ";
 		}
+		debugline += "<br>";
 	}
 	return debugline;
 }

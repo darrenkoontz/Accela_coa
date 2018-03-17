@@ -33,32 +33,41 @@ logDebug("totalfeebalance: " + totalfeebalance.toString());
 
 //Get the contacts
 var allcontacts = getContactArray();
-logDebug("Contacts...");
+logDebug("Contacts..." + allcontacts.length);
 logDebug(printObject(allcontacts));
 
 //grab the name and email of the appropriate contacts
 var allowedcontacttypes = ["Applicant", "Developer"];
+var contactstoemail = [];
 for (contact in allcontacts)
 {
-	var contacttype = allcontacts[contact]["contactType"];
-	logDebug("contact type is: " + contacttype);
-	//check if this contact is in the approved list above - if not, go on to the next one...
+	var contacttype = allcontacts[contact]["contactType"] + ""; //turn this into a string - lame
+	logDebug("Contact type is: " + contacttype);
+	//check if this contact type is in the allowed list above - if not, go on to the next one...
+	//if (!exists(contacttype, allowedcontacttypes))
 	if (allowedcontacttypes.indexOf(contacttype) == -1)
 	{
-		logDebug("Contact type IS NOT allowed - don't email");
+		logDebug("Contact type IS NOT allowed - don't email...");
 		continue;
 	}
-	logDebug("Contact is IS allowed - will send email");
+	
+	logDebug("Contact is IS allowed - will send email...");
 	var contactlastname = allcontacts[contact]["lastName"];
 	var contactfirstname = allcontacts[contact]["firstName"];
 	var contactemail = allcontacts[contact]["email"];
-	logDebug(contactemail + " " + contactfirstname + " " + contactlastname);	
+	logDebug(contactemail + " " + contactfirstname + " " + contactlastname);
+	var person = {};
+	person.first = contactfirstname;
+	person.last = contactlastname;
+	person.email = contactemail;
+	contactstoemail.push(person)
 }
+logDebug(printObject(contactstoemail));
 
 //send some emails if necessary
 if (iscorrecttask && iscorrectstatus && (totalfeebalance > 0.00))
 	{
-		//do some work
-		
+		//do some work		
 	}
 
+}
