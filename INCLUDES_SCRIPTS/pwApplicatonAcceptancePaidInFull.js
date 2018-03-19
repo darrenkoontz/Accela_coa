@@ -1,4 +1,4 @@
-//Script #288 - ID - 8 - untested 3-19-2018 scw
+//Script #288 - ID - 8
 //Record: PublicWorks/RealProperty/Subdivision Plat/NA
 //Event: PaymentReceiveAfter 
 //Criteria: When all fees are paid in Full (balance = 0) and ""Ready to Pay"" is the last status on //Application Acceptance Action then enter status ""Accepted"" in wfTask = Application Acceptance, this //should move the workflow forward and activate Review Distribution assigned to user Darren Akire with //start date = Today and end date = Today + 5 working days"
