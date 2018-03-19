@@ -14,3 +14,4 @@ editAppSpecific("Application Expiration Date",dateAdd(fileDate,180));
 
 script16_FillApplicationNameWhenEmpty();
 script185_UpdateAppExpDate180Days();
+script204_ASAActivateActivateWaterMeterTask();
