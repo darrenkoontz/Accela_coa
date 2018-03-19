@@ -9,7 +9,13 @@
 function script204_ASAActivateActivateWaterMeterTask() {
 	logDebug("script204_ASAActivateActivateWaterMeterTask started.");
 	try{
-		var asiSingleFamilyDetachedHome = AInfo["Single Family Detached Home"];
+		if(!publicUser){
+			var asiSingleFamilyDetachedHome = AInfo["Single Family Detached Home"];
+		}
+		else {
+			loadAppSpecific4ACA(AInfo);
+			var asiSingleFamilyDetachedHome = AInfo["Single Family Detached Home"];
+		}
 		logDebug("script204: Single Family Detached Home:"+asiSingleFamilyDetachedHome);
 		if (asiSingleFamilyDetachedHome == "No" )
 		{
