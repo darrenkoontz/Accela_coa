@@ -7,7 +7,7 @@ var currentwftask = wfTask;
 var currentstatus = wfStatus;
 
 //send email if everything is correct
-if (currentwftask == "Application Acceptance" && currentstatus = "Incomplete")
+if (currentwftask == "Application Acceptance" && currentstatus == "Incomplete")
 {
 	//send email and include link to record and comments
 	var taskinfo = getTaskStatusForEmail("Application Acceptance");
