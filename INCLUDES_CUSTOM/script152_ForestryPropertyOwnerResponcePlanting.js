@@ -9,10 +9,10 @@
 //Created By: Silver Lining Solutions
 
 function script152_ForestryPropertyOwnerResponcePlanting() {
-	aa.print("script152_ForestryPropertyOwnerResponcePlanting() started.");
+	logDebug("script152_ForestryPropertyOwnerResponcePlanting() started.");
 	try{
-		aa.print("script152_ForestryPropertyOwnerResponcePlanting: wf task is: "+wfTask);
-		aa.print("script152_ForestryPropertyOwnerResponcePlanting: wf status is: "+wfStatus);
+		logDebug("script152_ForestryPropertyOwnerResponcePlanting: wf task is: "+wfTask);
+		logDebug("script152_ForestryPropertyOwnerResponcePlanting: wf status is: "+wfStatus);
 	
 		if  ( wfTask == 'Property Owner Responce' && wfStatus == 'Plant Tree' )
 		{
@@ -34,8 +34,8 @@ function script152_ForestryPropertyOwnerResponcePlanting() {
 	catch(err){
 		showMessage = true;
 		comment("script152_ForestryPropertyOwnerResponcePlanting: Error on custom function script152_ForestryPropertyOwnerResponcePlanting(). Please contact administrator. Err: " + err);
-		aa.print("script152_ForestryPropertyOwnerResponcePlanting: Error on custom function script152_ForestryPropertyOwnerResponcePlanting(). Please contact administrator. Err: " + err);
+		logDebug("script152_ForestryPropertyOwnerResponcePlanting: Error on custom function script152_ForestryPropertyOwnerResponcePlanting(). Please contact administrator. Err: " + err);
 	}
-	aa.print("script152_ForestryPropertyOwnerResponcePlanting() ended.");
+	logDebug("script152_ForestryPropertyOwnerResponcePlanting() ended.");
 };//END script152_ForestryPropertyOwnerResponcePlanting();
 		
