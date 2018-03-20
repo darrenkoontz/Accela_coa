@@ -24,7 +24,11 @@ function script207_SetTotalSqFtOnFireRecord() {
 			if (cCapId != null) {
 				if (wfStatus == "Final CO Issued") 
 					{
-					editAppSpecific("Building Square Footage", {Total Finished Area Sq Ft}, cCapId);
+					//JMAIN updated this because it wasn't building in the EMSE tool.
+					//editAppSpecific("Building Square Footage", {Total Finished Area Sq Ft}, cCapId);
+					var totalfinishedarea = getAppSpecific("Total Finished Area Sq Ft");
+					editAppSpecific("Building Square Footage", totalfinishedarea, cCapId);
+
 					logDebug("script207_SetTotalSqFtOnFireRecord() updated ASI.");
 					}
 			}
