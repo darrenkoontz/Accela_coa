@@ -3,7 +3,7 @@
 //Event: 		WTUA
 //Desc:	 
 //
-//              Criteria wfTask = = Certification of Occupancy status = Final CO Issued or Not Required 
+//              Criteria wfTask = = Certificate of Occupancy status = Final CO Issued or Not Required 
 //             			and If custom field “Single Family Detached home” = “No” 
 //
 //              Action then auto generate the record “Fire/Primary Inspection/NA/NA” 
@@ -21,7 +21,7 @@ function script207_SetTotalSqFtOnFireRecord() {
 			logDebug("script207_SetTotalSqFtOnFireRecord() passed test.");
 			var cCapId = createChild("Fire", "Primary Inspection", "NA", "NA", ""); 
 			if (cCapId != null) {
-				editAppSpecific("Building Square Footage", "9999", cCapId);
+				editAppSpecific("Building Square Footage", {Total Finished Area Sq Ft}, cCapId);
 				logDebug("script207_SetTotalSqFtOnFireRecord() updated ASI.");
 
 			}
