@@ -19,3 +19,4 @@ Sample Call : createChildWaterUtilityPermitRecords()
 */
 
 createChildWaterUtilityPermitRecords();
+script207_SetTotalSqFtOnFireRecord();
