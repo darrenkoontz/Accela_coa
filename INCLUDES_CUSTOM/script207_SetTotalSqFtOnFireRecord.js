@@ -16,11 +16,12 @@
 function script207_SetTotalSqFtOnFireRecord() {
 	logDebug("script207_SetTotalSqFtOnFireRecord() started.");
 	try {
-	if(wfTask == "Certification of Occupancy" && (wfStatus == "Final CO Issued" || wfStatus == "Not Required") && {Single Family Detached home} == "No")
-		{
-		var cCapId = createChild("Fire", "Primary Inspection", "NA", "NA", ""); // this function
-		if (cCapId != null) {
-			editAppSpecific("Building Square Footage", "9999", cCapId);
+		if(wfTask == "Certification of Occupancy" && (wfStatus == "Final CO Issued" || wfStatus == "Not Required") && {Single Family Detached home} == "No")
+			{
+			var cCapId = createChild("Fire", "Primary Inspection", "NA", "NA", ""); // this function
+			if (cCapId != null) {
+				editAppSpecific("Building Square Footage", "9999", cCapId);
+			}
 		}
 	}
 	catch (err) {
