@@ -16,9 +16,9 @@
 function script207_SetTotalSqFtOnFireRecord() {
 	logDebug("script207_SetTotalSqFtOnFireRecord() started.");
 	try {
-		if(wfTask == "Certification of Occupancy" && (wfStatus == "Final CO Issued" || wfStatus == "Not Required") && {Single Family Detached home} == "No")
+		if(wfTask == "Certification of Occupancy" && (wfStatus == "Final CO Issued" || wfStatus == "Not Required") )
 			{
-			var cCapId = createChild("Fire", "Primary Inspection", "NA", "NA", ""); // this function
+			var cCapId = createChild("Fire", "Primary Inspection", "NA", "NA", ""); 
 			if (cCapId != null) {
 				editAppSpecific("Building Square Footage", "9999", cCapId);
 			}
@@ -28,4 +28,4 @@ function script207_SetTotalSqFtOnFireRecord() {
 		comment("Error on custom function script207_SetTotalSqFtOnFireRecord(). Please contact administrator. Err: " + err);
 	}
 
-};//END script207_SetTotalSqFtOnFireRecord();
+};//END script207_SetTotalSqFtOnFireRecord
