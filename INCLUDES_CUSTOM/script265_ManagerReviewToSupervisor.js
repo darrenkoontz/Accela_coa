@@ -11,8 +11,10 @@
 function script265_ManagerReviewToSupervisor (){
 	logDebug("script265_ManagerReviewToSupervisor() started.");
 	try{
-	
-	}
+		if ( wfTask == "Draft Workorder" && wfStatus == "Drafted workorder")
+		{
+			assignTask("Supervisor Review","EKOONTZ");
+		}
 	catch(err){
 		logDebug("Error on custom function script265_ManagerReviewToSupervisor(). Please contact administrator. Err: " + err);
 	}
