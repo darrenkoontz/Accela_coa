@@ -16,6 +16,21 @@ Notes :
 
 AutoCreateIrrigationPlanRecord();
 
+/*
+Title : Auto Create Temp SWMP Application record from Civil Plans (WorkflowTaskUpdateAfter) 
+Purpose : create temp record (as child) copy some data from parent IF wfstatus/task and asiField matches criteria
+
+Author: Yazan Barghouth 
+ 
+Functional Area : Records
+
+Sample Call:
+	autoCreateTempSWMPApplication("Plans Coordination", [ "Approved" ], "Erosion (SWMP) Report", "Water/Water/SWMP/Application");
+*/
+
+autoCreateTempSWMPApplication("Plans Coordination", [ "Approved" ], "Erosion (SWMP) Report", "Water/Water/SWMP/Application", "SWMP REQUIRES STORMWATER PERMIT # 101");
+
+
 
 
 

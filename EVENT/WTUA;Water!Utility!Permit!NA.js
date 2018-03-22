@@ -19,3 +19,23 @@ Sample Call : createChildWaterUtilityPermitRecords()
 */
 
 createChildWaterUtilityPermitRecords();
+
+
+/*
+Title : No Fee Required Permit Issuance (WorkflowTaskUpdateAfter) 
+Purpose : If workflow task = Fee Processing and the workflow status = No Fees Required then update the workflow task "Permit
+Issuance" with a status of "Issued" and update the application status to "Issued" and send an email to the applicant that the
+permit has been issued.
+
+Author: Yazan Barghouth 
+ 
+Functional Area : Records
+
+Sample Call:
+	checkNoFeeAndUpdateTask(capId, "Fee Processing", [ "No Fees Required" ], "MESSAGE_NOTICE_PUBLIC WORKS", "Permit Issuance", "Issued","Issued");
+
+Supported Email Parameters:
+	$$altID$$,$$recordAlias$$,$$recordStatus$$,$$balance$$,$$wfTask$$,$$wfStatus$$,$$wfDate$$,$$wfComment$$,$$wfStaffUserID$$,$$wfHours$$
+*/
+
+checkNoFeeAndUpdateTask(capId, "Fee Processing", [ "No Fees Required" ], "MESSAGE_NOTICE_PUBLIC WORKS", "Permit Issuance", "Issued","Issued");
