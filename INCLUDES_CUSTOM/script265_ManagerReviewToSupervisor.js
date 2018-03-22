@@ -14,9 +14,7 @@ function script265_ManagerReviewToSupervisor (){
 	
 	}
 	catch(err){
-		showMessage = true;
-		comment("Error on custom function script265_ManagerReviewToSupervisor(). Please contact administrator. Err: " + err);
 		logDebug("Error on custom function script265_ManagerReviewToSupervisor(). Please contact administrator. Err: " + err);
 	}
 	logDebug("script265_ManagerReviewToSupervisor() ended.");
-};//END script265_ManagerReviewToSupervisor();
+};//END script265_ManagerReviewToSupervisor
