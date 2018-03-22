@@ -1,4 +1,4 @@
 // ASA:P​ublicWorks/Traffic/Traffic Engineering Request/NA
 
 script140_AppSubmitAcceptedActivateTrafficInvestigation();
-script175_AssignApplicationSubmittalTaskj();
+script175_AssignApplicationSubmittalTask();
