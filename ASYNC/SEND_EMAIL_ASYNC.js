@@ -52,7 +52,7 @@ try {
 		if (vRParams == null) {
 			vRParams = aa.util.newHashtable();
 		}
-		var vReportName = generateReportForEmail_BCC(capId, reportTemplate, aa.getServiceProviderCode(), vRParams);
+		var vReportName = generateReportForEmail(capId, reportTemplate, aa.getServiceProviderCode(), vRParams);
 		//logDebug("Generated report " + vReportName);
 		if (vReportName != null && vReportName != false) {
 			//Update the report name if one was provided.
