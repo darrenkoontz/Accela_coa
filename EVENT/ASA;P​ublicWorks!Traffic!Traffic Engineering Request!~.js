@@ -12,7 +12,7 @@ Script to populate the record name with intersection data from GIS
 var vIntersection;
 var vFound = false;
 var vBuffer = 10;
-while (vFound == false || vBuffer > 500) {
+while (vFound == false || vBuffer < 500) {
 	vIntersection = getGISInfoArray_Buffer("AURORACO", "Intersections", ["INTERSECTION"], vBuffer, "feet");
 	if (vIntersection.length > 0) {
 		vFound = true;
