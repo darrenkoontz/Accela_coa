@@ -4,7 +4,7 @@
 //Desc: Automatically link the SWMP Permit record to the transfer request record 
 //		by taking the value entered in the custom field SWMP Permit Number and adding the record as the parent. 
 
-function script87_Link SWMP() {
+function script87_LinkSWMP() {
 	
 	logDebug("script87_Link SWMP started.");
 	try{
