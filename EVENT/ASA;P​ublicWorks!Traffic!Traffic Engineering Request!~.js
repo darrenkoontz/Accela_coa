@@ -1,7 +1,8 @@
 // ASA:P​ublicWorks/Traffic/Traffic Engineering Request/NA
 
-script140_AppSubmitAcceptedActivateTrafficInvestigation();
-script175_AssignApplicationSubmittalTask();
+// Commented out as this script was not yet deployed to Dev
+//script140_AppSubmitAcceptedActivateTrafficInvestigation();
+//script175_AssignApplicationSubmittalTask();
 
 /*
 Script ID-145:
