@@ -1,4 +1,4 @@
-//Script 204
+//Script  204
 //Record Types:	Building/NA/NA/NA
 //Event: 		ApplicationSubmitAfter(Civic Platform) or ConvertToRealCapAfter(ACA)
 //Desc:			If criteria:
