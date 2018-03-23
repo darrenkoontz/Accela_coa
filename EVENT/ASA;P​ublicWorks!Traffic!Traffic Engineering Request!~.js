@@ -21,6 +21,7 @@ while (vFound == false) {
 	} else {
 		vBuffer = vBuffer + 10;
 		if (vBuffer == 500) {
+			logDebug("Buffer Overrun");
 			vFound = "Buffer overrun";
 		}
 	}
