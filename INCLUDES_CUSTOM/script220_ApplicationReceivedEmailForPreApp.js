@@ -15,7 +15,10 @@ function script220_ApplicationReceivedEmailForPreApp() {
 		var email=iName.getEmail();
 		var emlTo=email;
 		//var emlTo = "eric@esilverliningsolutions.com";
-		var capID4Email = aa.cap.createCapIDScriptModel(capId.getID1(),capId.getID2(),capId.getID3());
+	logDebug("script220 currentUserID: " + currentUserID);
+	logDebug("script220         email: " + email);
+	logDebug("script220         emlTo: " + emlTo);
+	}		var capID4Email = aa.cap.createCapIDScriptModel(capId.getID1(),capId.getID2(),capId.getID3());
 		var emailParameters = aa.util.newHashtable();
 		var reportFile = [];
 		var sendResult = sendNotification("noreply@aurora.gov",emlTo,"","TEST_FOR_SCRIPTS",emailParameters,reportFile,capID4Email);
