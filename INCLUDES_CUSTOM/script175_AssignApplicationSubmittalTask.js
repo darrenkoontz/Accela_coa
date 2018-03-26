@@ -20,6 +20,7 @@ function script175_AssignApplicationSubmittalTask(){
 			{
 			assignTask("Application Submittal",currentUserID);	
 			}
+	}
 	catch(err){
 		logDebug("Error on custom function script175_AssignApplicationSubmittalTask(). Please contact administrator. Err: " + err);
 	}
