@@ -14,7 +14,7 @@ function script265_ManagerReviewToSupervisor (){
 		if ( wfTask == "Draft Workorder" && wfStatus == "Drafted workorder")
 		{
 			assignTask("Supervisor Review",currentUserID);
-			logDebug("script265_ManagerReviewToSupervisor() - Task 'Sup[ervisor Review' set to: " + currentUserID);
+			logDebug("script265_ManagerReviewToSupervisor() - Task Supervisor Review set to: " + currentUserID);
 		}
 	catch(err){
 		logDebug("Error on custom function script265_ManagerReviewToSupervisor(). Please contact administrator. Err: " + err);
