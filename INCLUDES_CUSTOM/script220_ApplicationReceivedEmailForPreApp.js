@@ -10,7 +10,7 @@
 function script220_ApplicationReceivedEmailForPreApp() {
 	logDebug("script220_ApplicationReceivedEmailForPreApp() started.");
 	try{
-		var iNameResult = aa.person.getUser(currentUserId);
+		var iNameResult = aa.person.getUser(currentUserID);
 		var iName = iNameResult.getOutput();
 		var email=iName.getEmail();
 		var emlTo=email;
