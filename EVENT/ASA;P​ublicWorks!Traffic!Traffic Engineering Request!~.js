@@ -7,7 +7,9 @@ script175_AssignApplicationSubmittalTask();
 Script ID-145:
 Emmett T. Wylam
 Script to populate the record name with intersection data from GIS
-*/ 
+
+EK - I am commenting out this code section as it is getting a buffer overrun
+
 var vIntersection;
 var vFound = false;
 var vBuffer = 10;
@@ -25,3 +27,4 @@ while (vFound == false) {
 		}
 	}
 }
+*/
