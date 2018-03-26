@@ -11,7 +11,7 @@ function script87_LinkSWMP() {
 		if (AInfo["SWMP Permit Number"] && AInfo["SWMP Permit Number"] > "") {
 			var parentAppNum = AInfo["SWMP Permit Number"];
 			parentCap = addParent("parentAppNum");
-			if !(parentCap.getSuccess()) {
+			if (!parentCap.getSuccess()) {
 				comment("Unable to create parent record on script87_Link SWMP. Please contact administrator.");
 			}
 		}
