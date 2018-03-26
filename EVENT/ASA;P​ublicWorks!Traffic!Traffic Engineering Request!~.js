@@ -3,13 +3,11 @@
 script140_AppSubmitAcceptedActivateTrafficInvestigation();
 script175_AssignApplicationSubmittalTask();
 
-
 /*
-
 Script ID-145:
 Emmett T. Wylam
 Script to populate the record name with intersection data from GIS
- 
+*/ 
 var vIntersection;
 var vFound = false;
 var vBuffer = 10;
@@ -27,4 +25,3 @@ while (vFound == false) {
 		}
 	}
 }
-*/
