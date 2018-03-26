@@ -10,14 +10,32 @@
 function script220_ApplicationReceivedEmailForPreApp() {
 	logDebug("script220_ApplicationReceivedEmailForPreApp() started.");
 	try{
-		var iNameResult = aa.person.getUser(currentUserID);
+		
+		var cdScriptObjResult = aa.cap.getCapDetail(capId);
+		if (!cdScriptObjResult.getSuccess()) {
+			logDebug("**ERROR: No cap detail script object : " + cdScriptObjResult.getErrorMessage());
+			return ""
+		}
+		var cdScriptObj = cdScriptObjResult.getOutput();
+		if (!cdScriptObj) {
+			logDebug("**ERROR: No cap detail script object");
+			return ""
+		}
+		var cd = cdScriptObj.getCapDetailModel();
+		var	userId=cd.getAsgnStaff();
+		if (userId==null) return "";
+		var iNameResult = aa.person.getUser(userId);
 		var iName = iNameResult.getOutput();
 		var email=iName.getEmail();
+		
+		//var iNameResult = aa.person.getUser(currentUserID);
+		//var iName = iNameResult.getOutput();
+		//var email=iName.getEmail();
 		var emlTo=email;
 		//var emlTo = "eric@esilverliningsolutions.com";
-	logDebug("script220 currentUserID: " + currentUserID);
-	logDebug("script220         email: " + email);
-	logDebug("script220         emlTo: " + emlTo);
+		logDebug("script220 currentUserID: " + currentUserID);
+		logDebug("script220         email: " + email);
+		logDebug("script220         emlTo: " + emlTo);
 		var capID4Email = aa.cap.createCapIDScriptModel(capId.getID1(),capId.getID2(),capId.getID3());
 		var emailParameters = aa.util.newHashtable();
 		var reportFile = [];
