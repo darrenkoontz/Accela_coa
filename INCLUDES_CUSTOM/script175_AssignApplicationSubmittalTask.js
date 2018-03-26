@@ -15,10 +15,12 @@ function script175_AssignApplicationSubmittalTask(){
 		if (publicUser)
 			{
 			assignTask("Application Submittal","ABUNCE");
+			logDebug("script175_AssignApplicationSubmittalTask: assigning Application Submittal to ABUNCE");
 			}
 		else 
 			{
 			assignTask("Application Submittal",currentUserID);	
+			logDebug("script175_AssignApplicationSubmittalTask: assigning Application Submittal to current User:" + currentUserID);
 			}
 	}
 	catch(err){
