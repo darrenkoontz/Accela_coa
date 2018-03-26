@@ -13,7 +13,7 @@ function script133_AutoCreateTraffic() {
 		if (wfTask==("Prepare Preliminary Letter") && wfStatus ==("Complete")) {
 			if (AInfo["Traffic Impact Study Required"] == "Yes") {
 				trafficCap = createChild("PublicWorks","Traffic","Traffic Impact","NA","Traffic Impact Study");
-				if !(trafficCap.getSuccess()) {
+				if (!trafficCap.getSuccess()) {
 					comment("Unable to create child record on script133_AutoCreateTraffic. Please contact administrator.");
 				}
 			}
