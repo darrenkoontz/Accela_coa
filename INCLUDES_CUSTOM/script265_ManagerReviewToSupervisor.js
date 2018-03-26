@@ -8,20 +8,16 @@
 //
 //Created By: Silver Lining Solutions
 
-function script265_ManagerReviewToSupervisor ()
-{
+function script265_ManagerReviewToSupervisor (){
 	logDebug("script265_ManagerReviewToSupervisor() started.");
-	try
-	{
+	try{
 		if ( wfTask == "Draft Workorder" && wfStatus == "Drafted workorder")
 		{
-			assignTask("Supervisor Review","EKOONTZ");
+			assignTask("Supervisor Review",currentUserID);
+			logDebug("script265_ManagerReviewToSupervisor() - Task 'Sup[ervisor Review' set to: " + currentUserID);
 		}
-	}
-	catch(err)
-	{
+	catch(err){
 		logDebug("Error on custom function script265_ManagerReviewToSupervisor(). Please contact administrator. Err: " + err);
 	}
 	logDebug("script265_ManagerReviewToSupervisor() ended.");
-};
-//END script265_ManagerReviewToSupervisor
+};//END script265_ManagerReviewToSupervisor
