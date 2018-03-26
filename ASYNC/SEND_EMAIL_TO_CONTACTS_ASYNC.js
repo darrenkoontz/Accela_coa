@@ -280,6 +280,4 @@ else {
 	if (vAddAdHocTask == true && conObjNonEmailArray.length > 0) {
 		addAdHocTaskAssignDept_BCC(vAdHocProcess, vAdHocTask, vAdHocNote, vAdHocAssignDept);
 	}
-/* Begin SDOT work-around to prevent payment notices on auto-approved (paid) ACA submissions */	
 }
-/* End SDOT work-around to prevent payment notices on auto-approved (paid) ACA submissions */

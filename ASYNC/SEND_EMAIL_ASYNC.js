@@ -115,5 +115,5 @@ try {
 	}
 
 } catch (err) {
-	aa.sendMail("noreply@accela.com", "john@grayquarter.com", "", "Script Error from CLEaR: " + err.message, err.lineNumber + " : " + err.stack + "\r\n" + debug);
+	logDebug("Error in Send_Email_ASYNC.js");
 }
