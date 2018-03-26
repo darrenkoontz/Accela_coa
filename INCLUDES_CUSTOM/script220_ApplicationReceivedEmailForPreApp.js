@@ -10,7 +10,11 @@
 function script220_ApplicationReceivedEmailForPreApp() {
 	logDebug("script220_ApplicationReceivedEmailForPreApp() started.");
 	try{
-		var emlTo = "eric@esilverliningsolutions.com";
+		var iNameResult = aa.person.getUser(currentUserId);
+		var iName = iNameResult.getOutput();
+		var email=iName.getEmail();
+		var emlTo=email;
+		//var emlTo = "eric@esilverliningsolutions.com";
 		var capID4Email = aa.cap.createCapIDScriptModel(capId.getID1(),capId.getID2(),capId.getID3());
 		var emailParameters = aa.util.newHashtable();
 		var reportFile = [];
