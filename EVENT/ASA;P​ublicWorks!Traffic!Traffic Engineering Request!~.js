@@ -1,14 +1,14 @@
 // ASA:P​ublicWorks/Traffic/Traffic Engineering Request/NA
 
-// Commented out as this script was not yet deployed to Dev
-//script140_AppSubmitAcceptedActivateTrafficInvestigation();
-//script175_AssignApplicationSubmittalTask();
+script140_AppSubmitAcceptedActivateTrafficInvestigation();
+script175_AssignApplicationSubmittalTask();
 
 /*
+
 Script ID-145:
 Emmett T. Wylam
 Script to populate the record name with intersection data from GIS
- */
+ 
 var vIntersection;
 var vFound = false;
 var vBuffer = 10;
@@ -26,3 +26,4 @@ while (vFound == false) {
 		}
 	}
 }
+*/
