@@ -19,7 +19,8 @@ function script256_MessageIfNoCaseManagerAssign (){
 		if ( wfTask == "Application Acceptance" && wfStatus == "Accepted")
 		{
 			// determine if the record has an assigned Case Manager. if not throw error
-			throw "Case Manager not Assigned. Please enter on the Record tab";			
+			if (getAssignedStaff() == null)
+				throw "Case Manager not Assigned. Please enter on the Record tab";			
 		}
 	}
 	catch(err)
