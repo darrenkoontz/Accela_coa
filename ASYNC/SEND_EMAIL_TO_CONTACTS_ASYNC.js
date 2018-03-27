@@ -99,7 +99,7 @@ else {
 	logDebug("5) balanceDue: " + balanceDue);
 /* End SDOT work-around to prevent payment notices on auto-approved (paid) ACA submissions */
 	//Get valid array of contact types
-	validConTypes = getContactTypes_BCC();
+	validConTypes = getContactTypes();
 
 	//Add standard email variables from record information
 	vEParams = addStdVarsToEmail(vEParams, capId);
@@ -156,9 +156,9 @@ else {
 		peopTemp = null;
 		//logDebug("          Searching for " + conTypeArray[z]);
 		if (conType == "Primary") {
-			vConObjArry = getContactObjsByCap_BCC(capId);
+			vConObjArry = getContactObjsByCap(capId);
 		} else {
-			vConObjArry = getContactObjsByCap_BCC(capId, conTypeArray[z]);
+			vConObjArry = getContactObjsByCap(capId, conTypeArray[z]);
 		}
 		for (x in vConObjArry) {
 			vConObj = vConObjArry[x];
@@ -207,7 +207,7 @@ else {
 	vReportName = false;
 	if (reportTemplate != '' && reportTemplate != null) {
 		//generate and get report file
-		vReportName = generateReportForEmail_BCC(capId, reportTemplate, aa.getServiceProviderCode(), vRParams);
+		vReportName = generateReportForEmail(capId, reportTemplate, aa.getServiceProviderCode(), vRParams);
 
 		//update the report name if one was provided. this will be used to update the saved report's name
 		if (vReportName != false && vChangeReportName != null && vChangeReportName != "") {
@@ -252,7 +252,7 @@ else {
 		//Set contact specific email paramaters
 		vEParamsToSend = vConObj.getEmailTemplateParams(vEParams);
 		//Set contact Name paramaters
-		addParameter(vEParamsToSend, "$$FullNameBusName$$", getContactName_BCC(vConObj));
+		addParameter(vEParamsToSend, "$$FullNameBusName$$", getContactName(vConObj));
 		//Add Contact Trade Name
 		if (vConObj.people.getTradeName() != null) {
 			addParameter(vEParamsToSend, "$$TradeName$$", vConObj.people.getTradeName())
@@ -266,9 +266,9 @@ else {
 	for (v in conObjNonEmailArray) {
 		vConObj = conObjNonEmailArray[v];
 		if (v == 0) {
-			vAdHocNote = vConObj.type + " - " + getContactName_BCC(vConObj);
+			vAdHocNote = vConObj.type + " - " + getContactName(vConObj);
 		} else {
-			vAdHocNote = vAdHocNote + ", " + vConObj.type + " - " + getContactName_BCC(vConObj);
+			vAdHocNote = vAdHocNote + ", " + vConObj.type + " - " + getContactName(vConObj);
 		}
 	}
 	//Add Email Template to Note
@@ -278,6 +278,6 @@ else {
 
 	//Add Ad-Hoc if needed
 	if (vAddAdHocTask == true && conObjNonEmailArray.length > 0) {
-		addAdHocTaskAssignDept_BCC(vAdHocProcess, vAdHocTask, vAdHocNote, vAdHocAssignDept);
+		addAdHocTaskAssignDept_COA(vAdHocProcess, vAdHocTask, vAdHocNote, vAdHocAssignDept);
 	}
 }

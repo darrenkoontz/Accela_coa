@@ -1,5 +1,5 @@
 /*
-emailAsync - parallel function for emailContacts_BCC when you have actual email addresses instead of contact types
+emailAsync - parallel function for emailContacts when you have actual email addresses instead of contact types
   Required Params:
      sendEmailToAddresses = comma-separated list of email addresses, no spaces
      emailTemplate = notification template name
