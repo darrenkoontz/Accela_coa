@@ -3,17 +3,18 @@
 //Event: 		WTUA
 //Desc:			Event WorkflowUpdateAfter 
 //
-//              Criteria WfTask = Draft Workorder status = Drafted workorder 
-//              Action Assign wfTask Manager Review to the user who did the last status of the Supervisor Review
+//              when WF task 'Supervisor Review' is updated with status 'Approved',
+//              then check to see if the status of task 'Draft Workorder' is status
+//              'Workorder Drafted' then set assign the task 'Manager Review' to the current user
 //
 //Created By: Silver Lining Solutions
 
 function script265_ManagerReviewToSupervisor (){
 	logDebug("script265_ManagerReviewToSupervisor() started.");
 	try{
-		if ( wfTask == "Draft Workorder" && wfStatus == "Drafted workorder")
+		if ( wfTask == "Supervisor Review" && wfStatus == "Approved" && isTaskStatus("Draft Workorder","Workorder Drafted"))
 		{
-			assignTask("Supervisor Review",currentUserID);
+			assignTask("Manager Review",currentUserID);
 			logDebug("script265_ManagerReviewToSupervisor() - Task Supervisor Review set to: " + currentUserID);
 		}
 	}
