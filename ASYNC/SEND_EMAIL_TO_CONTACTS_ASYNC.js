@@ -274,10 +274,9 @@ else {
 	//Add Email Template to Note
 	vAdHocNote = emailTemplate + ", " + vAdHocNote;
 
-	logDebug("Create AddHocTask: " + vAddAdHocTask);
-
 	//Add Ad-Hoc if needed
 	if (vAddAdHocTask == true && conObjNonEmailArray.length > 0) {
+		logDebug("Create AddHocTask: " + vAddAdHocTask);
 		addAdHocTaskAssignDept_COA(vAdHocProcess, vAdHocTask, vAdHocNote, vAdHocAssignDept);
 	}
 }
