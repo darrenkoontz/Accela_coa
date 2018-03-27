@@ -1,1 +1,2 @@
 script220_ApplicationReceivedEmailForPreApp();
+script224_ActivatePlanningSupervisorReview();
