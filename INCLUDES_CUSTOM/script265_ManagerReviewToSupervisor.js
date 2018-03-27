@@ -11,9 +11,9 @@
 function script265_ManagerReviewToSupervisor (){
 	logDebug("script265_ManagerReviewToSupervisor() started.");
 	try{
-		if ( wfTask == "Draft Workorder" && wfStatus == "Drafted workorder")
+		if ( wfTask == "Supervisor Review" && wfStatus == "Approved")
 		{
-			assignTask("Supervisor Review",currentUserID);
+			assignTask("Manager Review",currentUserID);
 			logDebug("script265_ManagerReviewToSupervisor() - Task Supervisor Review set to: " + currentUserID);
 		}
 	}
